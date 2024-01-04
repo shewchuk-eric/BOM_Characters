@@ -1,30 +1,15 @@
-<?php // this is the accounts manager model - handles site registrations
+<?php // this is the character manager model
 
-// CHECK FOR EXISTING EMAIL/USERNAME DURING REGISTRATION PROCESS
-// function checkUniqueEmail($clientEmail) {
-//     $db = charConnect(); // Create a connection object
-//     $sql = 'SELECT clientEmail FROM clients WHERE clientEmail = :clientEmail';
-//     $stmt = $db->prepare($sql); // Prepare the statement
-//     $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
-//     $stmt->execute(); // Run the query
-//     $isMatch = $stmt->fetch(PDO::FETCH_NUM); // Look for a qualifying row and return a number as the result (1 or 0)
-//     $stmt->closeCursor();
-//     if(empty($isMatch)) {
-//         return 0; // No match 
-//     } else {
-//         return 1; // Match found
-//     }
-// }
 
 // ADD NEW CHARACTER TO DATABASE
-function addChar($name, $status, $first, $comments) {
+function addChar($charName, $charType, $firstSeen, $abstract) {
     $db = charConnect(); // Create a connection object
-    $sql = 'INSERT INTO characters (name, status, first, comments) VALUES (:name, :status, :first, :comments)'; // The SQL query with placeholders for insert values
+    $sql = 'INSERT INTO characters (charName, charType, firstSeen, abstract) VALUES (:charName, :charType, :firstSeen, :abstract)'; // The SQL query with placeholders for insert values
     $stmt = $db->prepare($sql); // Prepare the statement
-    $stmt->bindValue(':name', $name, PDO::PARAM_STR); // Tells database what type of information is being sent
-    $stmt->bindValue(':status', $status, PDO::PARAM_STR);
-    $stmt->bindValue(':first', $first, PDO::PARAM_STR);
-    $stmt->bindValue(':comments', $comments, PDO::PARAM_STR);
+    $stmt->bindValue(':charName', $charName, PDO::PARAM_STR); // Tells database what type of information is being sent
+    $stmt->bindValue(':charType', $charType, PDO::PARAM_STR);
+    $stmt->bindValue(':firstSeen', $firstSeen, PDO::PARAM_STR);
+    $stmt->bindValue(':abstract', $abstract, PDO::PARAM_STR);
     $stmt->execute(); // Run the query
     $rowsChanged = $stmt->rowCount(); // Ask how many rows were affected by query
     $stmt->closeCursor();
