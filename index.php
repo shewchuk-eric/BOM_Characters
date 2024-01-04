@@ -24,7 +24,7 @@ $action = filter_input(INPUT_POST, 'action');
         echo "Maybe this will get used someday."; 
         break;   
     default:
-        include 'views/home.php';
+        include 'views/admin_add.php';
    }
 
  ?>
