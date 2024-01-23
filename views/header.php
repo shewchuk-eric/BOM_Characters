@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-<!-- <?php include_once 'views/navigation.php'; ?> -->
+<?php include_once 'views/navigation.php'; ?>
 
 </header>
     <body>
