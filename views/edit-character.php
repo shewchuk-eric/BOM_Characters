@@ -40,7 +40,7 @@
         </div>
         <div class="form-field input-right">
             <label for="verse">What Verse?</label><br>
-            <input name="verse" id="verse" type="text" <?php if (isset($verse)) { echo "value='$verse'";} ?> required>
+            <input name="verse" id="verse" type="text" <?php if (isset($character)) { echo "value='$character[verse]'";} ?> required>
         </div>
         <div class="form-field input-right">
             <label for="abstract">Comments</label><br>

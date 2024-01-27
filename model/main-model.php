@@ -4,7 +4,7 @@
 // ADD NEW CHARACTER TO DATABASE
 function addChar($charName, $charType, $firstSeen, $verse, $abstract) {
     $db = charConnect(); // Create a connection object
-    $sql = 'INSERT INTO characters (charName, charType, firstSeen, abstract) VALUES (:charName, :charType, :firstSeen, :abstract)'; // The SQL query with placeholders for insert values
+    $sql = 'INSERT INTO characters (charName, charType, firstSeen, verse, abstract) VALUES (:charName, :charType, :firstSeen, :verse, :abstract)'; // The SQL query with placeholders for insert values
     $stmt = $db->prepare($sql); // Prepare the statement
     $stmt->bindValue(':charName', $charName, PDO::PARAM_STR); // Tells database what type of information is being sent
     $stmt->bindValue(':charType', $charType, PDO::PARAM_STR);
